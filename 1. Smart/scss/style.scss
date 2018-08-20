@@ -1,0 +1,713 @@
+$navColor: #a0a4a4;
+$mainColor: #3c3d42;
+$phoneColor: #9dc7d1;
+$featureColor: #636c6c;
+$featureColor_Text: #afb8b8;
+$heartIconColor: #9fa9a9;
+$heartIconColor-hover: #5dca88;
+$product-FeatureColor: #8c9494;
+
+* {
+  box-sizing: border-box;
+  font-family: 'Raleway', sans-serif;
+  line-height: 1.4; //  font-size: 62.5%;
+  color: $mainColor;
+  text-decoration: none;
+  list-style: none;
+}
+//===========FONTS===========
+@import "awesome/fontawesome.scss";
+@mixin bold {
+  font-family: 'Raleway', sans-serif;
+  font-weight: bold;
+}
+@mixin regular {
+  font-family: 'Raleway', sans-serif;
+  font-weight: normal;
+}
+@mixin light {
+  font-family: 'Raleway', sans-serif;
+  font-weight: lighter;
+}
+@mixin robotoLight {
+  font-family: 'Roboto', sans-serif;
+  font-weight: lighter;
+}
+@mixin btn {
+  @include bold;
+  color: white;
+  margin-top: 55px;
+  padding: 17px 55px;
+  font-size: 21px;
+  outline: none;
+  border-radius: 5px;
+  background-color: transparent;
+  border: 2px solid white;
+}
+//   ==========           ===========
+// =============== Header ========================
+
+h1,
+h2,
+h3 {
+  @include bold;
+}
+
+a,
+figcaption,
+li,
+p {
+  text-decoration: none;
+  @include regular;
+  line-height: 1.4;
+}
+
+header#header {
+  position: fixed;
+  height: 70px;
+  background-color: white;
+  width: 100%;
+  display: flex;
+  z-index: 1000;
+
+  .header-container {
+    margin: 0 auto;
+    width: 1172px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .nav-container {
+      display: flex;
+      align-items: center;
+
+      a.logo {
+        font-size: 30px;
+        @include bold;
+        display: block;
+        margin-right: 40px;
+        color: $mainColor;
+        text-decoration: none;
+      }
+
+      ul.nav {
+        display: flex;
+        margin: 0;
+        padding: 0;
+
+        li {
+          &:nth-child(1n+2) {
+            margin-left: 30px;
+          }
+
+          a {
+            background-color: transparent;
+            font-size: 14px;
+            color: $navColor;
+            @include regular;
+          }
+        }
+      }
+    }
+
+    .info {
+      @include fa-icon;
+
+      i {
+        font-size: 14px;
+        display: inline-block;
+        transform: rotateY(-180deg);
+        margin-left: 30px;
+      }
+
+      a {
+        margin-left: 10px;
+        @include bold;
+        text-decoration: none;
+        font-size: 14px;
+        display: inline-block;
+        color: $mainColor;
+      }
+    }
+  }
+}
+
+section#phone {
+  background: url("../img/smart-app.jpg") no-repeat center center;
+  background-size: cover;
+
+  .phone-container {
+    max-width: 1172px;
+    margin: 0 auto;
+    padding: 170px 0 260px;
+
+    h1 {
+      @include bold;
+      font-size: 36px;
+      color: white;
+    }
+
+    h2 {
+      @include light;
+      color: white;
+      font-size: 36px;
+      max-width: 1172px;
+      margin: 15px auto 0;
+    }
+
+    p {
+      font-size: 14px;
+      color: $phoneColor;
+      margin-top: 45px;
+      @include regular;
+    }
+
+    .btn {
+      @include btn;
+      border-radius: 35px;
+    }
+  }
+}
+
+section#Features {
+  max-width: 1172px;
+  margin: 0 auto;
+  height: 984px;
+
+  .head_Features {
+    height: 330px;
+
+    h1 {
+      padding: 63px 0 10px;
+      font-size: 36px;
+      text-align: center;
+      color: $featureColor;
+    }
+
+    p {
+      text-align: center;
+      color: $featureColor_Text;
+      font-size: 16px;
+      margin-top: 16px;
+      line-height: 1.4;
+    }
+  }
+
+  .main_Features {
+    height: 650px;
+    display: flex;
+
+    .left_Features {
+      flex: 1;
+
+      ul {
+        margin: 0;
+        padding: 0;
+        position: relative;
+
+        &::after {
+          content: '';
+          display: block;
+          position: absolute;
+          top: 0;
+          left: 341px;
+          height: 405px;
+          width: 1px;
+          background-color: $featureColor;
+        }
+
+        li {
+          position: relative;
+          margin-left: 50px;
+
+          &:hover::after {
+            content: '';
+            display: block;
+            position: absolute;
+            top: 10px;
+            left: 288px;
+            height: 60px;
+            width: 8px;
+            background-color: $heartIconColor-hover;
+            z-index: 100;
+          }
+
+          &:hover::before {
+            color: $heartIconColor-hover;
+          }
+
+          &::before {
+            margin-top: 15px;
+            position: absolute;
+            content: "\2661";
+            top: -23px;
+            left: -22px;
+            display: block;
+            width: 50px;
+            height: 50px;
+            font-size: 66px;
+            color: $heartIconColor;
+          }
+
+          .icon-features {
+            color: $heartIconColor;
+            display: inline-block;
+            font-size: 40px;
+            vertical-align: middle;
+          }
+
+          a {
+            text-decoration: none;
+            padding: 25px 35px;
+            display: inline-block;
+            color: $heartIconColor;
+            font-size: 20px;
+            @include regular;
+
+            &:hover {
+              color: $featureColor;
+              font-size: 20px;
+              @include bold;
+            }
+          }
+        }
+      }
+
+      p {
+        .icon-features {
+          color: $heartIconColor;
+          display: inline-block;
+          font-size: 40px;
+          vertical-align: middle;
+          padding: 25px 35px;
+          @include regular;
+
+          &:hover {
+            color: red;
+          }
+        }
+
+        a {
+          display: inline-block;
+          color: $heartIconColor;
+          font-size: 20px;
+
+          &:hover {
+            color: $featureColor;
+            font-size: 20px;
+          }
+        }
+      }
+    }
+
+    .right_Features {
+      flex: 2;
+      margin-left: 100px;
+      margin-right: 100px;
+
+      img {
+        display: block;
+        margin: 0 auto;
+        width: 200px;
+        height: 175px;
+        margin-top: 50px;
+      }
+
+      h3 {
+        font-size: 24px;
+        color: $featureColor;
+        margin: 80px 0 30px;
+      }
+
+      p {
+        font-size: 16px;
+        color: $featureColor_Text;
+        margin-right: 20px;
+      }
+    }
+  }
+}
+
+section#product-Features {
+  width: 100%;
+  height: 820px;
+  background-color: #f2f9fe;
+  display: flex;
+
+  .container {
+    width: 1172px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+
+    .product-Feature-Left {
+      flex: 7;
+      margin-bottom: 100px;
+
+      h1 {
+        font-size: 36px;
+        color: $heartIconColor-hover;
+
+        &::after {
+          content: '';
+          display: block;
+          width: 104px;
+          height: 2px;
+          background-color: $product-FeatureColor;
+          margin: 30px 0 48px;
+        }
+      }
+
+      h2 {
+        @include regular;
+        font-size: 36px;
+        color: $product-FeatureColor;
+      }
+
+      p {
+        font-size: 16px;
+        color: $product-FeatureColor;
+        max-width: 420px;
+        margin: 50px 0 60px;
+      }
+
+      .btn {
+        @include bold;
+        color: $featureColor;
+        margin-top: 55px;
+        padding: 17px 55px;
+        font-size: 21px;
+        outline: none;
+        border-radius: 45px;
+        background-color: transparent;
+        border: 2px solid $featureColor;
+        cursor: pointer;
+      }
+    }
+
+    .product-Feature-Right {
+      flex: 5;
+      }
+  }
+}
+
+section#gallery {
+  width: 1172px;
+  height: 1140px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+
+  .container {
+    .galleryTop {
+      h1 {
+        font-size: 36px;
+        text-align: center;
+        color: $featureColor;
+      }
+
+      p {
+        font-size: 16px;
+        text-align: center;
+        color: $featureColor_Text;
+        max-width: 770px;
+        margin: 0 auto;
+        padding: 30px 0 90px;
+      }
+    }
+
+    .galleryImg {
+      display: flex;
+
+      figure {
+        padding: 0 48px 48px;
+
+        img {
+          margin: 0 auto;
+          display: block;
+          width: 100%;
+        }
+
+        figcaption {
+          text-align: center;
+          margin-top: 40px;
+        }
+      }
+      // end of figure
+    }
+
+    a {
+      width: 0;
+
+      .glyphicon-chevron-left {
+        position: absolute;
+        left: -50px;
+      }
+    }
+
+    .glyphicon-chevron-right {
+      position: absolute;
+      left: 50px;
+    }
+  }
+}
+
+section#product-geature {
+  width: 100%;
+  height: 820px;
+  background-color: #f2f9fe;
+  display: flex;
+
+  .container {
+    width: 1172px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+
+    .product-Feature-Left {
+      padding-left: 20px;
+      flex: 6;
+    }
+
+    .product-Feature-Right {
+      flex: 6;
+      margin-bottom: 100px;
+
+      h1 {
+        font-size: 36px;
+        color: $heartIconColor-hover;
+
+        &::after {
+          content: '';
+          display: block;
+          width: 104px;
+          height: 2px;
+          background-color: $product-FeatureColor;
+          margin: 30px 0 45px;
+        }
+      }
+
+      h2 {
+        @include regular;
+        font-size: 36px;
+        color: $product-FeatureColor;
+      }
+
+      p {
+        font-size: 16px;
+        color: $product-FeatureColor;
+        max-width: 420px;
+        padding: 50px 0 60px;
+      }
+
+      .btn {
+        @include bold;
+        color: $featureColor;
+        padding: 17px 55px;
+        font-size: 21px;
+        outline: none;
+        border-radius: 35px;
+        background-color: transparent;
+        border: 2px solid $featureColor;
+      }
+    }
+  }
+}
+
+section#testimonials {
+  width: 1172px;
+  height: 560px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .container {
+    h1 {
+      color: $featureColor;
+      font-size: 36px;
+      text-align: center;
+    }
+
+    ol.carousel-indicators {
+      margin-bottom: 20px;
+      li.active {
+        background-color: $heartIconColor-hover;
+      }
+
+      li {
+        margin-left: 5px;
+        background-color: $featureColor;
+      }
+    }
+
+    .carousel-inner {
+      margin: 0 auto;
+      width: 770px;
+      display: flex;
+      justify-content: center;
+
+      .item {
+        .testimonials-slider {
+          img {
+            display: block;
+            margin: 0 auto;
+            padding: 45px 0 50px;
+          }
+
+          .text {
+            font-family: Droid Serif;
+            font-size: 24px;
+            font-style: italic;
+            text-align: center;
+          }
+
+          .name {
+            color: $featureColor;
+            font-size: 24px;
+            color: $heartIconColor-hover;
+            text-align: center;
+            padding: 35px 0 0px;
+          }
+        }
+      }
+    }
+  }
+
+  a {
+    width: 0;
+
+    .glyphicon-chevron-left {
+      position: absolute;
+      left: 50px;
+    }
+  }
+
+  .right {
+    .glyphicon-chevron-right {
+      right: 50px;
+    }
+  }
+}
+
+section#newslater {
+  background-color: #f3f5f5;
+  height: 360px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .container {
+    h1 {
+      text-align: center;
+      color: $product-FeatureColor;
+      font-size: 36px;
+      padding-bottom: 60px;
+
+      &::before {
+        content: url("../img/envelope.png");
+        margin-right: 30px;
+      }
+    }
+
+    form {
+      margin: 0 auto;
+      display: flex;
+      justify-content: center;
+
+      .input {
+        position: relative;
+        display: flex;
+        justify-content: center;
+        width: 770px;
+
+        input[type='email'] {
+          border-radius: 50px;
+          padding: 15px 30px;
+          border: 2px solid #bbc3c2;
+          width: 100%;
+
+          &::placeholder {
+            color: $product-FeatureColor;
+            font-size: 14px;
+          }
+        }
+
+        button.subscibe {
+          position: absolute;
+          border-color: $heartIconColor-hover;
+          position: absolute;
+          right: 0;
+          top: 0;
+          width: 175px;
+          border-radius: 50px;
+          padding: 11px 30px;
+          background-color: $heartIconColor-hover;
+          border: 2px solid $heartIconColor-hover;
+          color: white;
+          @include bold;
+          font-size: 20px;
+          cursor: pointer;
+        }
+      }
+    }
+  }
+}
+
+footer#footer {
+  height: 300px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #2d312f;
+
+  .container {
+    h1 {
+      color: $product-FeatureColor;
+      font-size: 24px;
+      @include regular;
+      text-align: center;
+    }
+
+    .footerIcons {
+      margin: 0 auto;
+      display: flex;
+      width: 280px;
+      padding: 40px 0 70px;
+      justify-content: space-between;
+
+      a {
+        .fa {
+          font-size: 24px;
+          width: 43px;
+          height: 43px;
+          border-radius: 100%;
+          background-color: #5d6461;
+          text-align: center;
+          color: #2d312f;
+          line-height: 1.8;
+        }
+      }
+    }
+
+    ul.footerNav {
+      display: flex;
+      margin: 0 auto;
+      padding: 0;
+      justify-content: center;
+
+      li {
+        &:nth-child(1n+2) {
+          margin-left: 30px;
+        }
+
+        a {
+          text-decoration: none;
+          font-size: 14px;
+          color: $product-FeatureColor;
+        }
+      }
+    }
+  }
+}
